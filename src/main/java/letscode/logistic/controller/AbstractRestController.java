@@ -37,7 +37,7 @@ public abstract class AbstractRestController<T, R extends JpaRepository<T, ?>> {
     }
 
     @DeleteMapping("{id}")
-    public void delete(@PathVariable("id") T dbObj){
+    public void delete(@PathVariable("id") T dbObj) {
         repo.delete(dbObj);
     }
 }

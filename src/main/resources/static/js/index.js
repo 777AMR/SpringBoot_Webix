@@ -2,46 +2,51 @@ requirejs.config({
     baseUrl: 'js'
 })
 
+
 function buildRoute(view) {
-    return function () {
+    return function() {
         webix.ui({
             id: 'root',
-            rows: [view]
-        }, $$("root"))
+            rows: [
+                view
+            ]
+        }, $$('root'))
     }
 }
 
 function buildButton(label, route) {
     return {
-        view: "button",
+        view: 'button',
         value: label,
         width: 100,
-        align: "center",
-        click: function () {
+        align: 'center',
+        click: function() {
             routie(route)
         }
-    };
+    }
 }
 
 require(
     ['views/main', 'views/cars', 'views/marks', 'util/resourceProxy'],
-    function (main, cars, marks, resourceProxy) {
-    webix.ready(function () {
+    function(main, cars, marks, resourceProxy) {
+    webix.ready(function() {
         webix.ui({
-            container: "app",
+            container: 'app',
             width: document.body.clientWidth,
             height: document.body.clientHeight,
             rows: [
                 {
-                    vies: "toolbar",
-                    cols:[
+                    view: 'toolbar',
+                    cols: [
                         buildButton('Home', ''),
                         buildButton('Marks', 'marks'),
+                        buildButton('Cars', 'cars')
                     ]
                 },
                 {
                     id: 'root'
-            }]
+                }
+            ]
         })
     })
 
