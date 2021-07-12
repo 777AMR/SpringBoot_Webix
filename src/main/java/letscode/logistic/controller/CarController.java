@@ -11,5 +11,4 @@ public class CarController extends AbstractRestController<Car, CarRepo> {
     public CarController(CarRepo repo) {
         super(repo);
     }
-
 }

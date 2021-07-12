@@ -16,14 +16,14 @@ define(function() {
             var url = view.config.url.source
 
             return ajax.get(url + args)
-                .then(function (value) {
+                .then(function(value) {
                     var response = value.json()
                     return {
                         data: response.content,
                         pos: response.number * view.config.datafetch,
                         total_count: response.totalElements
                     }
-            })
+                })
         },
         save: function(view, params) {
             var id = params.id
